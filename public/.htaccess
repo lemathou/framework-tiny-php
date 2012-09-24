@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteRule ^[a-zA-Z\-]+\-([0-9]+).html$ index.php?page_id=$1 [L,QSA]
+RewriteRule ^[a-zA-Z\-]+\-([0-9]+)\-[a-zA-Z\-]+\-([0-9]+).html$ index.php?page_id=$1&sspage_id=$2 [L,QSA]
+RewriteRule ^[a-zA-Z\-]+\-([0-9]+)\-[a-zA-Z\-]+\-([0-9]+)\-[a-zA-Z\-]+\-([0-9]+).html$ index.php?page_id=$1&sspage_id=$2&ssspage_id=$3 [L,QSA]
+
+# Captcha
+RewriteRule ^images\/captcha\.jpg$ captcha.php [L]
+
+# Javascript
+RewriteRule ^js/(.+).js$ js.php?file=$1 [L]
+
+# CSS
+RewriteRule ^css/(.+).css$ css.php?file=$1 [L]
