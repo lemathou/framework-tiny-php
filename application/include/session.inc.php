@@ -6,11 +6,11 @@ if (isset($_POST["_login"]))
 {
 	if (isset($_POST["username"]) && is_string($_POST["username"]) && isset($_POST["password"]) && is_string($_POST["password"]))
 	{
-		$q = "SELECT `id`, `email`, `type`, `nom` FROM `account` WHERE `email`='".mysql_real_escape_string($_POST["username"])."' AND `password`='".mysql_real_escape_string($_POST["password"])."'";
-		$query = db()->select($q);
-		if (mysql_num_rows($query) == 1)
+		$qs = "SELECT `id`, `email`, `type`, `name` FROM `account` WHERE `email`='".db()->escape_string($_POST["username"])."' AND MD5(`password`)='".db()->escape_string($_POST["password"])."'";
+		$q = db()->select($qs);
+		if ($q->num_rows() == 1)
 		{
-			list($_SESSION["account_id"], $_SESSION["account_email"], $_SESSION["account_type"], $_SESSION["account_name"]) = mysql_fetch_row($query);
+			list($_SESSION["account_id"], $_SESSION["account_email"], $_SESSION["account_type"], $_SESSION["account_name"]) = $q->fetch_row();
 		}
 	}
 }

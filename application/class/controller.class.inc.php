@@ -23,6 +23,10 @@ public $_field_query_list = array("name", "description");
 class controller extends db_object
 {
 
+public $header = array();
+public $params = array();
+public $view = null;
+
 function __tostring()
 {
 
@@ -30,28 +34,52 @@ return (string)$this->name;
 
 }
 
+/**
+ * @return view
+ */
 function view()
 {
 
-return $this->object("view_id");
+if (!$this->view)
+{
+	$this->view = $this->object("view_id");
+	$this->view_params();
+}
+
+return $this->view;
 
 }
 
 /**
+ * Assigne les paramètres à la vue
+ */
+protected function view_params()
+{
+
+foreach($this->params as $name=>$value)
+	$this->view->params[$name] = $value;
+foreach($this->header as $name=>$value)
+	$this->view->header[$name] = $value;
+
+}
+
+
+/**
  * Traitements éventuels
- * @param unknown_type $param
+ * @param [] $param
  */
 function action($param)
 {
 
-if (count($param) && file_exists($filename=CONTROLLER_DIR."/".$this->ref.".action.inc.php"))
+//if (count($param) && file_exists($filename=CONTROLLER_DIR."/".$this->ref.".action.inc.php"))
+if (file_exists($filename=CONTROLLER_DIR."/".$this->ref.".action.inc.php"))
 	include $filename;
 
 }
 
 /**
  * Paramétrage de la vue
- * @param unknown_type $param
+ * @param [] $param
  */
 function prepare($param)
 {

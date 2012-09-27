@@ -1,0 +1,60 @@
+body{
+	background: #323232;
+	color: #cdcdcd;
+}
+h1{
+	text-align: center;
+	font-size: 1.2em;
+}
+h2{
+	text-align: center;
+	font-size: 1.2em;
+}
+h3{
+	text-align: center;
+}
+a{
+	color: inherit;
+}
+.login{
+}
+.login table{
+	background: white;
+	border: 1px #cdcdcd solid;
+	width: 350px;
+}
+.login table th{
+	width: 40%;
+}
+.login input{
+}
+.login input.field{
+	width: 100%;
+	background: #cdcdcd;
+}
+.logout{
+	float: right;
+}
+.menu a{
+	padding: 0 5px;
+	margin: 0 5px;
+	border: 1px transparent solid;
+	text-decoration: none;
+}
+.menu a:hover{
+}
+.menu a.selected{
+	border-color: black;
+}
+.liste a{
+	text-decoration: none;
+}
+.liste .rub{
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.liste .srub{
+	margin-top: 5px;
+	font-weight: bold;
+}

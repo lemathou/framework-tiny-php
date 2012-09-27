@@ -235,7 +235,7 @@ $type_select_multiple = array();
 $q_select = array("`".$this->_db_id."` as `id`");
 foreach($this->_fields as $name=>$field)
 {
-	if (in_array($field["type"], $this->field_simple))
+	if (isset($field["type"]) && in_array($field["type"], $this->field_simple))
 	{
 		if ($field["type"] == "select_multiple")
 			$type_select_multiple[] = $name;
@@ -244,7 +244,7 @@ foreach($this->_fields as $name=>$field)
 		else
 			$q_select[] = "`".$name."`";
 	}
-	elseif ($field["type"] == "object_list")
+	elseif (isset($field["type"]) && $field["type"] == "object_list")
 	{
 		$select_more[] = $name;
 	}

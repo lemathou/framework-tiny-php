@@ -5,6 +5,7 @@
  */
 $_object_list = array(
 	"page"=>array(),
+	"menu"=>array(),
 	"controller"=>array(),
 	"view"=>array(),
 	"account"=>array(),

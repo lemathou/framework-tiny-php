@@ -47,6 +47,13 @@ return new db_insert($sql);
 
 }
 
+function escape_string($string)
+{
+
+return mysql_real_escape_string($string);
+
+}
+
 }
 
 /**
@@ -104,6 +111,26 @@ else
 
 }
 
+function fetch_row_all()
+{
+
+$list = array();
+while(list($val) = $this->fetch_row())
+	$list[] = $val;
+return $list;
+
+}
+
+function fetch_row_all_indexed()
+{
+
+$list = array();
+while(list($index, $val) = $this->fetch_row())
+	$list[$index] = $val;
+return $list;
+
+}
+
 function fetch_assoc()
 {
 
@@ -121,7 +148,7 @@ else
 
 }
 
-function fetch_all()
+function fetch_assoc_all()
 {
 
 $list = array();
