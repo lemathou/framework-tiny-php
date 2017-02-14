@@ -1,0 +1,14 @@
+<?php
+
+define("DB_HOST", "localhost");
+define("DB_USER", "");
+define("DB_PASS", "");
+define("DB_BASE", "");
+
+define("PATH_ROOT", realpath(dirname(__FILE__)."/.."));
+
+define("PATH_INCLUDE", PATH_ROOT."/include");
+define("PATH_TEMPLATE", PATH_ROOT."/include/template");
+
+#error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+

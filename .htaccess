@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Redirections domaine
+RewriteCond %{HTTP_HOST} !^www\.ardeche\-miniatures\.com [NC]
+RewriteRule ^/(.*) http://www.ardeche-miniatures\.com/$1 [L,R=301]
+# Redirections manuelles
+RewriteRule ^(MJ12[.]*)$ $1 [L]
+RewriteRule ^presentation.htm$ /notre-parc-14.html [L,QSA,R=301]
+RewriteRule ^index.html$ / [L,QSA,R=301]
+RewriteRule ^coulisse/coulisse_curiosites.htm$ /activite-11/explorer-les-paysages-du-departement-4.html [L,QSA,R=301]
+RewriteRule ^coulisse/coulisse_mallet.htm$ /miniature-20/locomotive-mallet-1.html [L,QSA,R=301]
+RewriteRule ^renct_05juin.htm$ /evenement-13/week-end-train-passion-3.html [L,QSA,R=301]
+
+# Images redimentionnees
+RewriteRule ^img2/([0-9]*)x([0-9]*)/(.+)$ /img.php?width=$1&height=$2&src=$3 [L]
+RewriteRule ^img2/([0-9]*)/(.+)$ /img.php?width=$1&height&src=$2 [L]
+
+# Page principale
+RewriteRule ^[a-zA-Z\-0-9]+\-([0-9]+).html$ index.php?_page_id=$1 [L,QSA]
+RewriteRule ^[a-zA-Z\-0-9]+\-([0-9]+)/[a-zA-Z0-9][a-zA-Z0-9\-]*\-([0-9]+).html$ index.php?_page_id=$1&_param_id=$2 [L,QSA]
+# Sous-page
+RewriteRule ^[a-zA-Z\-]+\-([0-9]+)\/\-[a-zA-Z0-9\-]+\-([0-9]+).html$ index.php?_page_id=$1&_sspage_id=$2 [L,QSA]
+RewriteRule ^[a-zA-Z\-]+\-([0-9]+)\/\-[a-zA-Z0-9\-]+\-([0-9]+)\/[a-zA-Z0-9][a-zA-Z0-9\-]*\-([0-9]+).html$ index.php?_page_id=$1&_sspage_id=$2&_param_id=$3 [L,QSA]
+
+#Alias /images/captcha.jpg captcha.php
+RewriteRule ^images\/captcha\.jpg$ captcha.php [L]
+
