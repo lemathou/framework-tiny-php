@@ -546,28 +546,22 @@ if (!is_array($info))
 
 foreach($info as $name=>&$value)
 {
-	if (!isset($this->_manager->_fields[$name]))
-	{
+	if (!isset($this->_manager->_fields[$name])) {
 		unset($info[$name]);
 	}
-	else
-	{
+	else {
 		$field = $this->_manager->_fields[$name];
-		if (isset($field["type"]))
-		{
+		if (isset($field["type"])) {
 			$type = $field["type"];
-			if (in_array($type, array("int", "float", "numeric", "decimal")))
-			{
+			if (in_array($type, array("int", "float", "numeric", "decimal"))) {
 				if (!is_numeric($value)) {
 					$value = NULL;
 				}
 			}
-			elseif ($type == "boolean")
-			{
+			elseif ($type == "boolean") {
 				$value = ($value) ?1 :0;
 			}
-			elseif ($type == "object")
-			{
+			elseif ($type == "object") {
 				if (!is_numeric($value)) {
 					$value = NULL;
 				}
@@ -577,64 +571,60 @@ foreach($info as $name=>&$value)
 						$value = NULL;
 				}
 			}
-			elseif (in_array($type, array("string", "text", "richtext")))
-			{
+			elseif (in_array($type, array("string", "text", "richtext"))) {
 				if (!is_string($value)) {
 					$value = NULL;
 				}
 			}
-			elseif ($type == "select")
-			{
+			elseif ($type == "select") {
 				if ((!is_string($value) && !is_numeric($value)) || !isset($field["list"][$value])) {
 					$value = NULL;
 				}
 			}
-			elseif ($type == "select_multiple")
-			{
+			elseif ($type == "select_multiple") {
 				if (!is_array($value)) {
 					$value = NULL;
 				}
-				else
-				{
+				else {
 					foreach($value as $i=>$v)
 						if (!isset($field["list"][$v]))
 							unset($value[$i]);
 				}
 			}
-			elseif ($type == "date")
-			{
+			elseif ($type == "date") {
 				if (!is_string($value)) {
 					$value = NULL;
 				}
-				elseif (true) {
+				elseif (preg_match("/^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{4})$/", $value)) {
+					$e = explode("/", $value);
+					$e = array_reverse($e);
+					$value = implode("-", $e);
 				}
-			}
-			elseif (in_array($type, array("datetime", "timestamp")))
-			{
-				if (!is_string($value)) {
+				elseif (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $value)) {
 					$value = NULL;
 				}
 			}
-			elseif (in_array($type, array("img", "file")))
-			{
+			elseif (in_array($type, array("datetime", "timestamp"))) {
+				if (!is_string($value)) {
+					$value = NULL;
+				}
+				//elseif (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $value)) {
+			}
+			elseif (in_array($type, array("img", "file"))) {
 				//var_dump($_FILES);
 				// Sans upload ou upload foireux
 				if (isset($_FILES[$name]) && (!$_FILES[$name]["tmp_name"] || $_FILES[$name]["error"] != UPLOAD_ERR_OK)) {
 					unset($_FILES[$name]);
 				}
 				// Fichier sans nom ou nom foireux
-				if (isset($_FILES[$name]))
-				{
-					if (isset($field["filename"]))
-					{
+				if (isset($_FILES[$name])) {
+					if (isset($field["filename"])) {
 						$_FILES[$name]["name"] = $this->field_map_replace($field["filename"]);
 					}
-					else
-					{
+					else {
 						$nb = 0;
 						$name = $field["filename"];
-						while (file_exists(PATH_ROOT."/".$field["folder"]."/".$_FILES[$name]["name"]))
-						{
+						while (file_exists(PATH_ROOT."/".$field["folder"]."/".$_FILES[$name]["name"])) {
 							$nb++;
 							$_FILES[$name]["name"] = $nb."-".$name;
 						}
@@ -642,8 +632,7 @@ foreach($info as $name=>&$value)
 					$value = $_FILES[$name]["name"];
 				}
 				// Renommage sans fichier
-				elseif ($value && (isset($field["filename"]) || !$this->$name || !file_exists(PATH_ROOT."/".$field["folder"]."/".$this->$name)))
-				{
+				elseif ($value && (isset($field["filename"]) || !$this->$name || !file_exists(PATH_ROOT."/".$field["folder"]."/".$this->$name))) {
 					//echo PATH_ROOT."/".$field["folder"]."/".$this->$name;
 					unset($info[$name]);
 				}
