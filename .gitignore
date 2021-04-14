@@ -1,6 +1,11 @@
 .hg/
 .hgignore
 
+*~
+*.orig
+*.old
+*.save
+
 favicon.ico
 
 google*.html
@@ -18,5 +23,7 @@ images/*
 js/ckfinder/*
 js/ckeditor/*
 docs/*
-*~
+
+#include/template/
+include/template/recup/
 
