@@ -556,32 +556,42 @@ foreach($info as $name=>&$value)
 		if (isset($field["type"]))
 		{
 			$type = $field["type"];
-			if (in_array($type, array("object", "int", "float", "numeric", "decimal")) && !is_numeric($value))
+			if (in_array($type, array("int", "float", "numeric", "decimal")))
 			{
-				$value = NULL;
+				if (!is_numeric($value)) {
+					$value = NULL;
+				}
 			}
 			elseif ($type == "boolean")
 			{
 				$value = ($value) ?1 :0;
 			}
-			elseif ($type == "object" && $value)
+			elseif ($type == "object")
 			{
-				$object_classname = $field["object_type"];
-				if (!$object_classname()->exists($value))
+				if (!is_numeric($value)) {
 					$value = NULL;
+				}
+				else {
+					$object_classname = $field["object_type"];
+					if (!$object_classname()->exists($value))
+						$value = NULL;
+				}
 			}
-			elseif (in_array($type, array("string", "text", "richtext")) && !is_string($value))
+			elseif (in_array($type, array("string", "text", "richtext")))
 			{
-				$value = NULL;
+				if (!is_string($value)) {
+					$value = NULL;
+				}
 			}
-					elseif ($type == "select" && ((!is_string($value) && !is_numeric($value)) || !isset($field["list"][$value])))
+			elseif ($type == "select")
 			{
-				$value = NULL;
+				if ((!is_string($value) && !is_numeric($value)) || !isset($field["list"][$value])) {
+					$value = NULL;
+				}
 			}
 			elseif ($type == "select_multiple")
 			{
-				if (!is_array($value))
-				{
+				if (!is_array($value)) {
 					$value = NULL;
 				}
 				else
@@ -591,15 +601,21 @@ foreach($info as $name=>&$value)
 							unset($value[$i]);
 				}
 			}
-			elseif ($type == "date" && (!is_string($value)))
+			elseif ($type == "date")
 			{
-				$value = NULL;
+				if (!is_string($value)) {
+					$value = NULL;
+				}
+				elseif (true) {
+				}
 			}
-			elseif (in_array($type, array("datetime", "timestamp")) && (!is_string($value)))
+			elseif (in_array($type, array("datetime", "timestamp")))
 			{
-				$value = NULL;
+				if (!is_string($value)) {
+					$value = NULL;
+				}
 			}
-			elseif ($type == "img" || $type == "file")
+			elseif (in_array($type, array("img", "file")))
 			{
 				//var_dump($_FILES);
 				// Sans upload ou upload foireux
@@ -635,7 +651,9 @@ foreach($info as $name=>&$value)
 		}
 	}
 }
-//var_dump($_FILES); var_dump($info);
+if (!empty($_FILES)) {
+	//var_dump($_FILES); var_dump($info);
+}
 
 }
 
@@ -814,7 +832,7 @@ foreach($info as $name=>$value)
 			}
 			else
 				$q_list[] = "`".(isset($field["db_fieldname"]) ?$field["db_fieldname"] :$name)."` = ".($value===NULL?"NULL":"'".mysql_real_escape_string($value)."'");
-			if ($type == "img")
+			if (in_array($type, array("img", "file")))
 			{
 				if (isset($_FILES[$name]) && $this->$name) {
 					$file_update = true;
@@ -913,7 +931,7 @@ foreach($info as $name=>$value)
 			}
 			else
 				$q_list_2[] = ($value===NULL?"NULL":"'".mysql_real_escape_string($value)."'");
-			if ($type == "img")
+			if (in_array($type, array("img", "file")))
 			{
 				$file_move_list[$_FILES[$name]["tmp_name"]] = PATH_ROOT."/".$field["folder"]."/".$value;
 			}
