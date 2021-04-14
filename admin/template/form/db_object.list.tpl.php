@@ -1,11 +1,14 @@
 <h3>Liste</h3>
 <table class="list">
+<thead>
 <tr>
 	<td colspan="2">&nbsp;</td>
 <?php foreach ($classname()->_field_disp_list as $name) { ?>
 	<th><?php echo $classname()->_fields[$name]["label"]; ?></th>
 <?php } ?>
 </tr>
+</thead>
+<tbody>
 <?php foreach($classname()->select() as $object) { ?>
 <tr>
 <td><a href="?delete_id=<?php echo $object->id; ?>" onclick="return confirm('Êtes-vous certain de vouloir supprimer cet enregistrement ?')"><img src="images/delete.gif" alt="Supprimer" title="Supprimer" /></a></td>
@@ -31,5 +34,6 @@
 <?php } ?>
 </tr>
 <?php } ?>
+</tbody>
 </table>
 

@@ -81,7 +81,7 @@
 	}
 	elseif($field["type"] = "date")	
 	{
-		echo "<input name=\"".$name."\" value=\"".$object->$name."\" class=\"date\" />";
+		echo "<input name=\"".$name."\" value=\"".date_en2fr($object->$name)."\" class=\"date\" />";
 	}
 	elseif($field["type"] == "select")
 	{

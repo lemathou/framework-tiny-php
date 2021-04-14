@@ -4,6 +4,9 @@ p{
 p, td, th, li, input, select, textarea {
         font-size: inherit;
 }
+
+/* Formulaire */
+
 form.db_object{
         width: auto;
         font-size: 0.85em;
@@ -16,6 +19,9 @@ form.db_object th{
 }
 form.db_object th.label{
         width: 250px;
+}
+form.db_object td {
+	padding: 4px 0;
 }
 form.db_object td.field_img img {
         max-width: 100%;
@@ -33,10 +39,14 @@ form.db_object td.field  textarea{
 form.db_object td.field  textarea.richtext{
         height: 20em;
 }
+
+/* Liste */
+
 .list td, .list th{
         vertical-align: top;
 }
 .list th{
+	padding: 0 4px 0 0;
         text-align: left;
+	border-bottom: 1px dotted gray;
 }
-
