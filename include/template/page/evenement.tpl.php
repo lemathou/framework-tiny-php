@@ -7,6 +7,12 @@
 <?php echo $evenement->texte; ?>
 </div>
 
+<?php if ($evenement->pdffile){ ?>
+<div class="pdf">
+<a href="/<?php echo $evenement->file('pdffile'); ?>" style="border: 0;text-decoration: none;"><img src="/img/icon/pdf-icon.png" height="60" align="absmiddle" style="text-decoration: none;" alt="PDF" /></a><a href="/<?php echo $evenement->file('pdffile'); ?>">Télécharger le document</a>
+</div>
+<?php } ?>
+
 <?php if ($evenement->img){ ?>
 <div class="img">
 <img src="/<?php echo $evenement->img('img', 660); ?>" style="max-width:660px;" />
