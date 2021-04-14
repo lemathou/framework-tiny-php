@@ -12,6 +12,8 @@ class miniature_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Miniature";
+
 public $_fields = array(
 	"active" => array("label"=>"Actif", "type"=>"bool"),
 	"cat_id" => array("label"=>"Rubrique", "type"=>"object", "object_type"=>"cat"),

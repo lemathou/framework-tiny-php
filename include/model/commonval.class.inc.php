@@ -12,6 +12,8 @@ class commonval_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Registre";
+
 public $_fields = array(
 	"name" => array("label"=>"Nom", "type"=>"string", "readonly"=>true),
 	"description" => array("label"=>"Description", "type"=>"string"),

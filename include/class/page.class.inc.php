@@ -11,6 +11,8 @@ class page_manager extends db_object_manager{
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Page";
+
 public $_fields = array(
 	"controller_id" => array("label"=>"Controller", "type"=>"object", "object_type"=>"controller"),
 	"ref" => array("label"=>"Référence courte", "type"=>"string", "readonly"=>true),

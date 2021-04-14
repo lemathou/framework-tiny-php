@@ -12,6 +12,8 @@ class realisation_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Réalisation";
+
 public $_fields = array(
 	"afficher" => array("label"=>"Affiché", "type"=>"bool"),
 	"activite_id" => array("label"=>"Activité", "type"=>"object", "object_type"=>"activite"),

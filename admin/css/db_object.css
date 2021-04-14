@@ -1,0 +1,42 @@
+p{
+        margin: 0;
+}
+p, td, th, li, input, select, textarea {
+        font-size: inherit;
+}
+form.db_object{
+        width: auto;
+        font-size: 0.85em;
+}
+form.db_object table{
+        width: 100%;
+}
+form.db_object th{
+        text-align: left;
+}
+form.db_object th.label{
+        width: 250px;
+}
+form.db_object td.field_img img {
+        max-width: 100%;
+}
+form.db_object td.field input{
+        width: 100%;
+}
+form.db_object td.field input.number{
+        width: 14em;
+}
+form.db_object td.field  textarea{
+        width: 100%;
+        height: 10em;
+}
+form.db_object td.field  textarea.richtext{
+        height: 20em;
+}
+.list td, .list th{
+        vertical-align: top;
+}
+.list th{
+        text-align: left;
+}
+

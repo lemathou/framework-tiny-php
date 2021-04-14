@@ -12,6 +12,9 @@ class account_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+
+public $_label = "Compte utilisateur";
+
 public $_fields = array(
 	"type" => array("label"=>"Type", "type"=>"select", "list"=>array("admin"=>"Administrateur", "user"=>"Utilisateur", "client"=>"Client")),
 	"nom" => array("label"=>"Nom", "type"=>"string"),

@@ -12,6 +12,8 @@ class cat_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Catégorie";
+
 public $_fields = array(
 	"active" => array("label"=>"Actif", "type"=>"bool"),
 	"ref" => array("label"=>"Référence courte", "type"=>"string", "calculate"=>"ref:titre", "readonly"=>true),

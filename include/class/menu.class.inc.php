@@ -11,6 +11,8 @@ class menu_manager extends db_object_manager{
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Menu";
+
 public $_fields = array(
 	"parent_id" => array("label"=>"Parent", "type"=>"object", "object_type"=>"menu"),
 	"page_id" => array("label"=>"Page", "type"=>"object", "object_type"=>"page"),

@@ -11,6 +11,9 @@ class controller_manager extends db_object_manager{
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+
+public $_label = "Controlleur";
+
 public $_fields = array(
 	"ref" => array("label"=>"Référence courte", "type"=>"string", "readonly"=>true),
 	"titre" => array("label"=>"Titre", "type"=>"string"),

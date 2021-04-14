@@ -11,6 +11,8 @@ class template_manager extends db_object_manager{
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Template";
+
 public $_fields = array(
 	"ref" => array("label"=>"Référence courte", "type"=>"string", "readonly"=>true),
 	"ref_right" => array("label"=>"Référence courte droite", "type"=>"string"),

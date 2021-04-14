@@ -12,6 +12,8 @@ class activite_manager extends db_object_manager
 public $DB_DEBUG = false;
 public $FILE_DEBUG = false;
 
+public $_label = "Activité";
+
 public $_fields = array(
 	"active" => array("label"=>"Actif", "type"=>"bool"),
 	#"pos" => array("label"=>"Position sur l'accueil", "type"=>"int"),
