@@ -25,6 +25,7 @@ public $_fields = array(
 	"date_fin" => array("label"=>"Date fin", "type"=>"date"),
 	"dates" => array("label"=>"Dates", "type"=>"text"),
 	"img"=>array("label"=>"Image", "type"=>"img", "folder"=>"img/evenements", "filename"=>"{ref}.jpg"),
+	"pdffile"=>array("label"=>"PDF", "type"=>"file", "folder"=>"docs/evenements", "filename"=>"{ref}.pdf"),
 );
 public $_field_disp_list = array("active", "cat_id", "titre", 'resume');
 
