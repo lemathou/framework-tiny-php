@@ -24,6 +24,9 @@ js/ckfinder/*
 js/ckeditor/*
 docs/*
 
+tmp/
+vendor/
+
 #include/template/
 include/template/recup/
 

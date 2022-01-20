@@ -37,7 +37,7 @@ $sql = "SELECT p.id, pp.name, pp.value
 	LEFT JOIN `page_params` pp ON pp.page_id=p.id AND pp.name=cp.name
 	WHERE p.`id` IN (".implode(',', $list_id).")";
 $q = mysql_query($sql);
-while($row = mysql_fetch_assoc($q)){
+if ($q) while($row = mysql_fetch_assoc($q)){
 	$list[$row['id']]['params'][$row['name']] = $row['value'];
 	$list[$row['id']][$row['name']] = $row['value'];
 }

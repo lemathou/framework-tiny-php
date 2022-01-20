@@ -21,6 +21,9 @@ public function view()
 
 $activite = activite()->get($this->params['activite_id']);
 
+if (empty($activite))
+	$this->error404();
+
 $page = page('activite');
 $url = "http://www.ardeche-miniatures.com".$page->url($activite->id);
 

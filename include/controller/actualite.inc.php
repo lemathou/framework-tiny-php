@@ -3,17 +3,27 @@
 class actualite_controller extends controller {
 
 public function param_title($id){
-	return actualite()->get($id)->titre;
+	if (is_numeric($id)) {
+		if ($actualite=actualite()->get($id))
+			return $actualite->titre;
+	}
 }
 
 public function param_url($id){
-	return actualite()->get($id)->url.'-'.$id;
+	if (is_numeric($id)) {
+		if ($actualite=actualite()->get($id))
+			return $actualite->url.'-'.$id;
+	}
 }
 
 public function view()
 {
 
 $actualite = actualite()->get($this->params['actualite_id']);
+
+if (empty($actualite)) {
+	$this->error404();
+}
 
 $page = page('actualite');
 $url = "http://www.ardeche-miniatures.com".$page->url($actualite->id);

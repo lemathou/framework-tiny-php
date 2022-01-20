@@ -15,7 +15,7 @@
 
 <?php if ($evenement->img){ ?>
 <div class="img">
-<img src="/<?php echo $evenement->img('img', 660); ?>" style="max-width:660px;" />
+<img src="/<?php echo $evenement->img('img', 1280); ?>" />
 </div>
 <?php } ?>
 

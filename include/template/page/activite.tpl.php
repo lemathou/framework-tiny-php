@@ -9,7 +9,7 @@
 
 <?php if ($activite->img) { ?>
 <div class="img">
-<img src="/<?php echo $activite->img('img', 660); ?>" style="max-width:660px;" />
+<img src="/<?php echo $activite->img('img', 1280); ?>" />
 </div>
 <?php } ?>
 

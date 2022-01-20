@@ -1,16 +1,17 @@
-<div class="actualite">
-<?php $actualite = actualite()->get($actualite_id); ?>
-<p style="margin: 0; color: gray;"><?php echo date_mysql($actualite->datetime); ?></p>
-<h1><?php echo $actualite->titre; ?></h1>
+<?php $plante = plante()->get($plante_id); ?>
+<div class="plante">
+<h1><?php echo $plante->titre; ?></h1>
 
 
 <div class="text richtext">
-<?php echo $actualite->texte; ?>
+<?php echo $plante->texte; ?>
 </div>
 
+<?php if ($plante->img) { ?>
 <div class="img">
-<img src="/<?php echo $actualite->img('img', 1280); ?>" />
+<img src="/<?php echo $plante->img('img', 1280); ?>" />
 </div>
+<?php } ?>
 
 <div class="social" style="margin-top: 20px;">
 	<div style="float: right;"><div class="g-plusone" data-annotation="inline" data-width="300"></div></div>

@@ -1,9 +1,13 @@
 <?php
 
-if (!mysql_connect(DB_HOST, DB_USER, DB_PASS))
-	die("Erreur Connection MySQL");
-elseif (!mysql_select_db(DB_BASE))
-	die("Erreur Base de donnée : ".DB_BASE);
+if (!mysql_connect(DB_HOST, DB_USER, DB_PASS)) {
+	header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+	die("<h1>Erreur 500</h1><p>Internal Server Error</p><p>Erreur Connection BDD</p><p>Réessayez dans un moment...</p>");
+}
+elseif (!mysql_select_db(DB_BASE)) {
+	header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+	die("<h1>Erreur 500</h1><p>Internal Server Error</p><p>Erreur Connexion BDD</p><p>Réessayez dans un moment...</p>");
+}
 mysql_query("SET NAMES UTF8");
 
 include "autoload.inc.php";

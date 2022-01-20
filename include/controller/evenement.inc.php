@@ -3,17 +3,22 @@
 class evenement_controller extends controller {
 
 public function param_title($id){
-	return evenement()->get($id)->titre;
+	if (is_numeric($id) && ($evenement=evenement()->get($id)))
+		return $evenement->titre;
 }
 
 public function param_url($id){
-	return evenement()->get($id)->url.'-'.$id;
+	if (is_numeric($id) && ($evenement=evenement()->get($id)))
+		return $evenement->url.'-'.$id;
 }
 
 public function view()
 {
 
 $evenement = evenement()->get($this->params['evenement_id']);
+
+if (empty($evenement))
+	$this->error404();
 
 $page = page('evenement');
 $url = "http://www.ardeche-miniatures.com".$page->url($evenement->id);

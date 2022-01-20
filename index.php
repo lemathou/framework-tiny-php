@@ -8,8 +8,10 @@ ini_set('display_errors', true);
 
 //var_dump($_GET);
 
-if (!isset($_GET["_page_id"]) || !is_numeric($page_id=$_GET["_page_id"]) || !($page_controller=page()->get($page_id)))
+if (!isset($_GET["_page_id"]))
 	$page_controller = page()->get(1);
+elseif (!is_numeric($page_id=$_GET["_page_id"]) || !($page_controller=page()->get($page_id)))
+	 $page_controller = page()->get(32);
 
 //var_dump($page_controller);
 

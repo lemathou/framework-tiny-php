@@ -8,9 +8,6 @@
 <?php $page = page()->get(13); ?>
 <?php foreach ($list as $evenement){ ?>
 <div class="evenement content_link">
-<div class="share" style="float: right">
-	<div class="fb-like" data-href="<?php echo 'http://'.DOMAIN.$page->url($evenement->id) ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
 <h3><?php echo $page->link($evenement->id); ?></h3>
 <p class="light"><?php echo $evenement->dates; ?></p>
 <?php if ($evenement->cat_id) { ?>
@@ -29,9 +26,6 @@
 <?php $page = page()->get(13); ?>
 <?php foreach ($list as $evenement){ ?>
 <div class="evenement content_link">
-<div class="share" style="float: right">
-	<div class="fb-like" data-href="<?php echo 'http://'.DOMAIN.$page->url($evenement->id) ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
 <h3><?php echo $page->link($evenement->id); ?></h3>
 <p class="light"><?php echo $evenement->dates; ?></p>
 <?php if ($evenement->cat_id) { ?>

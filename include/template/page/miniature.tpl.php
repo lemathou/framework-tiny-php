@@ -1,16 +1,17 @@
-<div class="actualite">
-<?php $actualite = actualite()->get($actualite_id); ?>
-<p style="margin: 0; color: gray;"><?php echo date_mysql($actualite->datetime); ?></p>
-<h1><?php echo $actualite->titre; ?></h1>
+<?php $miniature = miniature()->get($miniature_id); ?>
+<div class="miniature">
+<h1><?php echo $miniature->titre; ?></h1>
 
 
 <div class="text richtext">
-<?php echo $actualite->texte; ?>
+<?php echo $miniature->texte; ?>
 </div>
 
+<?php if ($miniature->img) { ?>
 <div class="img">
-<img src="/<?php echo $actualite->img('img', 1280); ?>" />
+<img src="/<?php echo $miniature->img('img', 1280); ?>" />
 </div>
+<?php } ?>
 
 <div class="social" style="margin-top: 20px;">
 	<div style="float: right;"><div class="g-plusone" data-annotation="inline" data-width="300"></div></div>

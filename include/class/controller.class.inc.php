@@ -104,6 +104,13 @@ return "paramtitle-$id";
 
 }
 
+function error404()
+{
+	$page = new page(32);
+        $page->display();
+        die();
+}
+
 /**
  * Mise en place des éléments communs au template
  */

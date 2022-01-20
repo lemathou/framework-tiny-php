@@ -16,6 +16,7 @@ $admin_menu_list = array(
 	"cat"=>array('label'=>"Rubriques", 'perms'=>array('root', 'admin', 'user')),
 	"partenaire"=>array('label'=>"Partenaires", 'perms'=>array('root', 'admin', 'user')),
 	"miniature"=>array('label'=>"Miniatures", 'perms'=>array('root', 'admin', 'user')),
+	"plante"=>array('label'=>"Plantes", 'perms'=>array('root', 'admin', 'user')),
 );
 $menu_ref = "";
 

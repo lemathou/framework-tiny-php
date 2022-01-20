@@ -17,6 +17,7 @@ public $_fields = array(
 	"ref" => array("label"=>"Référence courte", "type"=>"string", "readonly"=>true),
 	"ref_right" => array("label"=>"Référence courte droite", "type"=>"string"),
 	"ref_left" => array("label"=>"Référence courte gauche", "type"=>"string"),
+	"ref_footer" => array("label"=>"Référence courte footer", "type"=>"string"),
 	"description" => array("label"=>"Description", "type"=>"text"),
 	"css" => array("label"=>"js", "type"=>"string"),
 	"js" => array("label"=>"css", "type"=>"string"),

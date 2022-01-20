@@ -17,6 +17,7 @@ $object_list = array(
 	"cat"=>array(),
 	"partenaire"=>array(),
 	"miniature"=>array(),
+	"plante"=>array(),
 );
 
 // MANUAL ACCESSOR DEFINITION
