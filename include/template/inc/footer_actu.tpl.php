@@ -1,8 +1,9 @@
 <?php
 // Dernière actualité mise en valeur et active
 $actualites = actualite()->select('active=1', 1, 'datetime DESC');
-$actualite = array_pop($actualites);
-$page = page()->get('actualite');
+if (!empty($actualites)) {
+	$actualite = array_pop($actualites);
+	$page = page()->get('actualite');
 //var_dump($actualite);
 ?>
 <div class="footer_actu row">
@@ -21,3 +22,6 @@ $page = page()->get('actualite');
 		</div>
 	</div>
 </div>
+<?php
+}
+
